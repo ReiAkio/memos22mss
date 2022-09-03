@@ -15,9 +15,13 @@ dados: observacao,
 });
 },
 };
-app.post("/eventos", (req, res) => {
-funcoes[req.body.tipo](req.body.dados);
-res.status(200).send({ msg: "ok" });
-});
 
+app.post("/eventos", (req, res) => {
+    try{
+    funcoes[req.body.tipo](req.body.dados);
+    }
+    catch (err){}
+    res.status(200).send({ msg: "ok" });
+    });
+    
 app.listen(7000, () => console.log("Classificação. Porta7000"));
