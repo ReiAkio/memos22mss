@@ -16,13 +16,13 @@ app.post('/eventos', (req, res) => {
 
     try{
         //envia o evento para o microsserviço de lembretes
-        axios.post('http://localhost:4000/eventos', evento).catch(error => console.log("Error "+ error));
+        axios.post('http://10.33.109.9:4000/eventos', evento).catch(error => console.log("Error "+ error));
         //envia o evento para o microsserviço de obervações
-        axios.post('http://localhost:5000/eventos', evento).catch(error => console.log("Error "+ error));
+        axios.post('http://10.33.109.9:5000/eventos', evento).catch(error => console.log("Error "+ error));
         //envia o evento para o microsserviço de consulta
-        axios.post("http://localhost:6000/eventos", evento).catch(error => console.log("Error "+ error));
+        axios.post("http://10.33.109.9:6000/eventos", evento).catch(error => console.log("Error "+ error));
         //envia o evento para o microsservico de classificacao
-        axios.post("http://localhost:7000/eventos", evento).catch(error => console.log("Error "+ error));
+        axios.post("http://10.33.109.9:7000/eventos", evento).catch(error => console.log("Error "+ error));
     }
     catch(err){};
         res.status(200).send({ msg: "ok"});
